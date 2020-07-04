@@ -16,7 +16,7 @@ export const UserContext = createContext()
 
 const Routing = ()=>{
   const history = useHistory()
-  const {state,dispatch} = useContext(UserContext)
+  const {dispatch} = useContext(UserContext)
   useEffect(()=>{
     const user = JSON.parse(localStorage.getItem("user"))
     if(user){
@@ -25,7 +25,7 @@ const Routing = ()=>{
     else{
       history.push('/signin')
     }
-  },[])
+  },[dispatch, history])
   return(
     <Switch>
         <Route exact path="/">

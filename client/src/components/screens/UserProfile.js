@@ -18,7 +18,7 @@ const Profile  = ()=>{
          
             setProfile(result)
        })
-    },[])
+    },[userid])
 
 
     const followUser = ()=>{
@@ -65,7 +65,7 @@ const Profile  = ()=>{
              localStorage.setItem("user",JSON.stringify(data))
             
              setProfile((prevState)=>{
-                const newFollower = prevState.user.followers.filter(item=>item != data._id )
+                const newFollower = prevState.user.followers.filter(item=>item !== data._id )
                  return {
                      ...prevState,
                      user:{
@@ -91,7 +91,7 @@ const Profile  = ()=>{
                <div>
                    <img style={{width:"160px",height:"160px",borderRadius:"80px"}}
                    src={userProfile.user.pic}
-                   />
+                   alt="no" />
                </div>
                <div>
                    <h4>{userProfile.user.name}</h4>

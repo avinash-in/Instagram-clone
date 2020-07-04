@@ -34,7 +34,7 @@ const CretePost = ()=>{
             console.log(err)
         })
     }
-    },[url])
+    },[body, history, title, url])
   
    const postDetails = ()=>{
        const data = new FormData()
